@@ -100,13 +100,14 @@
             "name": "oomox",
             "buildsystem": "simple",
             "build-commands": [
-                "./packaging/flatpak/install.sh"
+                "make DESTDIR=/ PREFIX=/app/opt/oomox DISABLE_PLUGIN_MATERIA=1 DISABLE_PLUGIN_SPOTIFY=1 DISABLE_PLUGIN_ARC=1 install",
+                "python3 -O -m compileall /app/opt/oomox/oomox_gui"
             ],
             "sources": [
                 {
                     "type": "git",
                     "url": "https://github.com/themix-project/oomox.git",
-                    "tag": "1.6.2.1"
+                    "tag": "1.7"
                 }
             ]
         }
