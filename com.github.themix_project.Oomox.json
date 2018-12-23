@@ -15,13 +15,14 @@
         {
             "name": "resvg",
             "buildsystem": "simple",
-				"build-options" : {
-					"env": {
-						"CARGO_HOME": "/run/build/resvg/cargo"
-					}
-				},
+			"build-options" : {
+				"append-path": "/usr/lib/sdk/rust-stable/bin",
+				"env": {
+					"CARGO_HOME": "/run/build/resvg/cargo"
+				}
+			},
             "build-commands": [
-                "source /usr/lib/sdk/rust-stable/enable.sh && for dir in capi tools/rendersvg; do ( cd $dir ; cargo build --release --features='qt-backend cairo-backend' ) done",
+                "for dir in capi tools/rendersvg; do ( cd $dir ; cargo build --release --features='qt-backend cairo-backend' ) done",
                 "install -Dm755 target/release/rendersvg /app/bin/rendersvg",
                 "install -Dm755 target/release/libresvg.so /app/lib/libresvg.so",
                 "install -Dm644 capi/include/resvg.h /app/include/resvg.h"
