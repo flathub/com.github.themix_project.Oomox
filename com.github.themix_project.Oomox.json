@@ -22,8 +22,7 @@
                 "export CARGO_HOME=$(pwd)/cargo_home ; for dir in capi tools/rendersvg; do ( cd $dir ; cargo build --release --features='cairo-backend' ) done",
                 "install -Dm755 target/release/rendersvg /app/bin/rendersvg",
                 "install -Dm755 target/release/libresvg.so /app/lib/libresvg.so",
-                "install -Dm644 capi/include/resvg.h /app/include/resvg.h",
-                "rm -fr ./cargo_home"
+                "install -Dm644 capi/include/resvg.h /app/include/resvg.h"
             ],
             "sources": [
                 {
