@@ -46,7 +46,7 @@
             "build-commands": [
                 "./install.sh --help",
                 "./install.sh --list-components --verbose",
-                "./install.sh --prefix=/ --disable-ldconfig --verbose"
+                "./install.sh --prefix=${FLATPAK_DEST} --disable-ldconfig --verbose"
             ]
         },
         {
