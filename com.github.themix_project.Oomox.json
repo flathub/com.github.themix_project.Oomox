@@ -3,7 +3,7 @@
     "runtime": "org.gnome.Sdk",
     "runtime-version": "3.30",
     "sdk": "org.gnome.Sdk",
-	"sdk-extensions": ["org.freedesktop.Sdk.Extension.rust-stable"],
+    "sdk-extensions": ["org.freedesktop.Sdk.Extension.rust-stable"],
     "command": "oomox-gui",
     "finish-args": [
         "--share=ipc",
@@ -15,6 +15,9 @@
         {
             "name": "resvg",
             "buildsystem": "simple",
+            "build-options": {
+                "append-path": "/usr/lib/sdk/rust-stable/bin"
+            },
             "build-commands": [
                 "export CARGO_HOME=$(pwd)/cargo_home ; for dir in capi tools/rendersvg; do ( cd $dir ; cargo build --release --features='qt-backend cairo-backend' ) done",
                 "install -Dm755 target/release/rendersvg /app/bin/rendersvg",
@@ -27,11 +30,11 @@
                     "url": "https://github.com/RazrFalcon/resvg/archive/07b5191683f18be693a08f66334568f098ea5429.tar.gz",
                     "sha256": "2307c58c10b2adda2b990d2dcf676e2b4958798445dd700dc7225164092a5fc5"
                 },
-				{
+                {
                     "type": "archive",
                     "url": "https://github.com/actionless/_flatpak_helpers/releases/download/0.01/cargo_home.tar.bz2",
                     "sha256": "c11bb49ac97c384ce481f71b759a1f1da73879e722fce06fb935213e31b50c2f"
-				}
+                }
             ]
         },
         {
