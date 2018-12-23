@@ -62,7 +62,7 @@
                 {
                     "type": "archive",
                     "url": "https://github.com/RazrFalcon/resvg/archive/07b5191683f18be693a08f66334568f098ea5429.tar.gz",
-                    "sha256": "855c40528b897d06ae4d24606c2db3cd09bb38de5b46b28e835f9d4fd4d7ab95",
+                    "sha256": "2307c58c10b2adda2b990d2dcf676e2b4958798445dd700dc7225164092a5fc5",
                     "dest": "./deps/resvg"
                 }
             ]
