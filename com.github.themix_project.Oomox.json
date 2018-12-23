@@ -6,6 +6,7 @@
 	"sdk-extensions": ["org.freedesktop.Sdk.Extension.rust-stable"],
     "command": "oomox-gui",
     "finish-args": [
+		"--share=network",
         "--share=ipc",
         "--filesystem=~/.themes:create",
         "--filesystem=~/.icons:create",
