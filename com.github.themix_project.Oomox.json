@@ -33,7 +33,8 @@
                 {
                     "type": "archive",
                     "url": "https://github.com/actionless/_flatpak_helpers/releases/download/0.01/cargo_home.tar.bz2",
-                    "sha256": "c11bb49ac97c384ce481f71b759a1f1da73879e722fce06fb935213e31b50c2f"
+                    "sha256": "c11bb49ac97c384ce481f71b759a1f1da73879e722fce06fb935213e31b50c2f",
+                    "dest": "./cargo_home/"
                 }
             ]
         },
