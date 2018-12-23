@@ -16,17 +16,19 @@
             "name": "resvg",
             "buildsystem": "simple",
             "build-commands": [
-                "source /usr/lib/sdk/rust-stable/enable.sh && cd ./deps/resvg ; for dir in capi tools/rendersvg; do ( cd $dir ; cargo build --release --features='qt-backend cairo-backend' ) done",
-                "install -Dm755 ./deps/resvg/target/release/rendersvg /app/bin/rendersvg",
-                "install -Dm755 ./deps/resvg/target/release/libresvg.so /app/lib/libresvg.so",
-                "install -Dm644 ./deps/resvg/capi/include/resvg.h /app/include/resvg.h"
+                "source /usr/lib/sdk/rust-stable/enable.sh && for dir in capi tools/rendersvg; do ( cd $dir ; cargo build --release --features='qt-backend cairo-backend' ) done",
+                "install -Dm755 target/release/rendersvg /app/bin/rendersvg",
+                "install -Dm755 target/release/libresvg.so /app/lib/libresvg.so",
+                "install -Dm644 capi/include/resvg.h /app/include/resvg.h"
             ],
+			"build-options": {
+				"build-args": ["--share=network"]
+			},
             "sources": [
                 {
                     "type": "archive",
                     "url": "https://github.com/RazrFalcon/resvg/archive/07b5191683f18be693a08f66334568f098ea5429.tar.gz",
-                    "sha256": "2307c58c10b2adda2b990d2dcf676e2b4958798445dd700dc7225164092a5fc5",
-                    "dest": "./deps/resvg"
+                    "sha256": "2307c58c10b2adda2b990d2dcf676e2b4958798445dd700dc7225164092a5fc5"
                 }
             ]
         },
