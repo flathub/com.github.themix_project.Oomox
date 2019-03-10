@@ -35,7 +35,7 @@
                 "append-path": "/usr/lib/sdk/rust-stable/bin"
             },
             "build-commands": [
-                "export CARGO_HOME=$(pwd)/cargo_home ; for dir in capi tools/{render,u}svg; do ( cd $dir ; if grep -q cairo-backend Cargo.toml; then cargo build --release --features='cairo-backend' ; else cargo build --release ; fi ) done",
+                "set -x ; export CARGO_HOME=$(pwd)/cargo_home ; for dir in capi tools/{render,u}svg; do ( cd $dir ; if grep -q cairo-backend Cargo.toml; then cargo build --release --features='cairo-backend' --verbose ; else cargo build --release --verbose ; fi ) done",
                 "install -Dm755 target/release/rendersvg /app/bin/rendersvg",
                 "install -Dm755 target/release/libresvg.so /app/lib/libresvg.so",
                 "install -Dm644 capi/include/resvg.h /app/include/resvg.h"
