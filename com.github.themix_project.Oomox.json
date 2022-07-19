@@ -9,7 +9,8 @@
         "--share=ipc",
         "--filesystem=~/.themes:create",
         "--filesystem=~/.icons:create",
-        "--socket=x11"
+        "--socket=fallback-x11",
+        "--socket=wayland"
     ],
     "modules": [
         {
