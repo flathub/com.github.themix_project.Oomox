@@ -56,15 +56,6 @@
         {
             "name": "python3-pillow",
             "buildsystem": "simple",
-            "build-options": {
-                "arch": {
-                    "i386": {
-                        "env": {
-                            "MAX_CONCURRENCY": "1"
-                                }
-                            }
-                        }
-            },
             "build-commands": [
                 "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"pillow\" --no-build-isolation"
             ],
@@ -79,15 +70,6 @@
         {
             "name": "python3-colorthief",
             "buildsystem": "simple",
-            "build-options": {
-                "arch": {
-                    "i386": {
-                        "env": {
-                            "MAX_CONCURRENCY": "1"
-                        }
-                    }
-                }
-            },
             "build-commands": [
                 "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"colorthief\" --no-build-isolation"
             ],
@@ -102,15 +84,6 @@
         {
             "name": "python3-haishoku",
             "buildsystem": "simple",
-            "build-options": {
-                "arch": {
-                    "i386": {
-                        "env": {
-                            "MAX_CONCURRENCY": "1"
-                        }
-                    }
-                }
-            },
             "build-commands": [
                 "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"haishoku\" --no-build-isolation"
             ],
@@ -125,15 +98,6 @@
         {
             "name": "python3-pystache",
             "buildsystem": "simple",
-            "build-options": {
-                "arch": {
-                    "i386": {
-                        "env": {
-                            "MAX_CONCURRENCY": "1"
-                        }
-                    }
-                }
-            },
             "build-commands": [
                 "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"pystache\" --no-build-isolation"
             ],
@@ -148,15 +112,6 @@
         {
             "name": "python3-pyyaml",
             "buildsystem": "simple",
-            "build-options": {
-                "arch": {
-                    "i386": {
-                        "env": {
-                            "MAX_CONCURRENCY": "1"
-                        }
-                    }
-                }
-            },
             "build-commands": [
                 "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"pyyaml\" --no-build-isolation"
             ],
