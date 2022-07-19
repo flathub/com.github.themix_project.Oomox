@@ -1,7 +1,7 @@
 {
     "app-id": "com.github.themix_project.Oomox",
     "runtime": "org.gnome.Sdk",
-    "runtime-version": "3.38",
+    "runtime-version": "42",
     "sdk": "org.gnome.Sdk",
     "sdk-extensions": ["org.freedesktop.Sdk.Extension.rust-stable"],
     "command": "oomox-gui",
@@ -31,26 +31,24 @@
         {
             "name": "resvg",
             "buildsystem": "simple",
-            "build-options": {
-                "append-path": "/usr/lib/sdk/rust-stable/bin"
-            },
             "build-commands": [
-                "export CARGO_HOME=$(pwd)/cargo_home ; for dir in capi tools/{render,u}svg; do ( cd $dir ; if grep -q cairo-backend Cargo.toml; then cargo build --release --features='cairo-backend' ; else cargo build --release ; fi ) done",
-                "install -Dm755 target/release/rendersvg /app/bin/rendersvg",
+                "cargo build --workspace --frozen --release --all-features",
+                "install -Dm755 target/release/resvg /app/bin/resvg",
                 "install -Dm755 target/release/libresvg.so /app/lib/libresvg.so",
-                "install -Dm644 capi/include/resvg.h /app/include/resvg.h"
+                "install -Dm644 c-api/resvg.h /app/include/resvg.h"
             ],
+            "build-options": {
+                "append-path": "/usr/lib/sdk/rust-stable/bin",
+                "env" : {
+                    "CARGO_HOME" : "/run/build/resvg/cargo"
+                }
+            },
             "sources": [
+                "cargo-sources.json",
                 {
                     "type": "archive",
-                    "url": "https://github.com/RazrFalcon/resvg/archive/v0.5.0.tar.gz",
-                    "sha256": "f9d0dc31de9b6f516c0c5350f22142ab8af6a2d957a729494bb403cff32ba611"
-                },
-                {
-                    "type": "archive",
-                    "url": "https://github.com/actionless/_flatpak_helpers/releases/download/0.5.0/cargo_home.tar.bz2",
-                    "sha256": "0548150c212dc65ba9f88b8071192cf2e113bfd2ea807e8ac482effcdc8072ce",
-                    "dest": "./cargo_home/"
+                    "url": "https://github.com/RazrFalcon/resvg/releases/download/v0.23.0/resvg-0.23.0.tar.xz",
+                    "sha256": "557de89846d1aab06f9261d1d661a64cc35ad7037ab56e49eb2a81f10487f8f5"
                 }
             ]
         },
@@ -62,19 +60,18 @@
                     "i386": {
                         "env": {
                             "MAX_CONCURRENCY": "1"
+                                }
+                            }
                         }
-                    }
-                }
             },
             "build-commands": [
-                "install -d ${FLATPAK_DEST}/lib/python3.5/site-packages/",
-                "python3 setup.py install --prefix=${FLATPAK_DEST}"
+                "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"pillow\" --no-build-isolation"
             ],
             "sources": [
                 {
-                    "type": "archive",
-                    "url": "https://files.pythonhosted.org/packages/d3/c4/b45b9c0d549f482dd072055e2d3ced88f3b977f7b87c7a990228b20e7da1/Pillow-5.2.0.tar.gz",
-                    "sha256": "f8b3d413c5a8f84b12cd4c5df1d8e211777c9852c6be3ee9c094b626644d3eab"
+                    "type": "file",
+                    "url": "https://files.pythonhosted.org/packages/8c/92/2975b464d9926dc667020ed1abfa6276e68c3571dcb77e43347e15ee9eed/Pillow-9.2.0.tar.gz",
+                    "sha256": "75e636fd3e0fb872693f23ccb8a5ff2cd578801251f3a4f6854c6a5d437d3c04"
                 }
             ]
         },
@@ -91,14 +88,13 @@
                 }
             },
             "build-commands": [
-                "install -d ${FLATPAK_DEST}/lib/python3.5/site-packages/",
-                "python3 setup.py install --root=${FLATPAK_DEST} --optimize=1"
+                "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"colorthief\" --no-build-isolation"
             ],
             "sources": [
                 {
-                    "type": "archive",
-                    "url": "https://github.com/fengsp/color-thief-py/archive/0.2.1.tar.gz",
-                    "sha256": "f2c47cad43809048adb9be1e4e63519d32e3b68532e8f0ab7bf46a58ddf7d099"
+                    "type": "file",
+                    "url": "https://files.pythonhosted.org/packages/56/18/be03b7058e65f9df479b14e7af4e73945ce311e07aaad45cf2536e14791a/colorthief-0.2.1-py2.py3-none-any.whl",
+                    "sha256": "b04fc8ce5cf9c888768745e29cb19b7b688d5711af6fba26e8057debabec56b9"
                 }
             ]
         },
@@ -115,14 +111,59 @@
                 }
             },
             "build-commands": [
-                "install -d ${FLATPAK_DEST}/lib/python3.5/site-packages/",
-                "python3 setup.py install --root=${FLATPAK_DEST}"
+                "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"haishoku\" --no-build-isolation"
             ],
             "sources": [
                 {
-                    "type": "archive",
-                    "url": "https://github.com/LanceGin/haishoku/archive/v1.1.7.tar.gz",
-                    "sha256": "4f34043f5509e18b60411050b40596f9510193ae8dca5146f7e82cc0730536b8"
+                    "type": "file",
+                    "url": "https://files.pythonhosted.org/packages/d1/9d/5d52b35d4aef716266e812d8c6df9702e31de4499a4cbe567c0e71cee225/haishoku-1.1.8-py3-none-any.whl",
+                    "sha256": "c505b8154aa41c98748059860033d47c1409330c5ac4fdbc90378223ebb996b4"
+                }
+            ]
+        },
+        {
+            "name": "python3-pystache",
+            "buildsystem": "simple",
+            "build-options": {
+                "arch": {
+                    "i386": {
+                        "env": {
+                            "MAX_CONCURRENCY": "1"
+                        }
+                    }
+                }
+            },
+            "build-commands": [
+                "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"pystache\" --no-build-isolation"
+            ],
+            "sources": [
+                {
+                    "type": "file",
+                    "url": "https://files.pythonhosted.org/packages/3f/e7/8750ba6c6101d6aa5ceeb20c013adf2c6f3554a12c71d75654b468404bfa/pystache-0.6.0.tar.gz",
+                    "sha256": "93bf92b2149a4c4b58d12142e2c4c6dd5c08d89e4c95afccd4b6efe2ee1d470d"
+                }
+            ]
+        },
+        {
+            "name": "python3-pyyaml",
+            "buildsystem": "simple",
+            "build-options": {
+                "arch": {
+                    "i386": {
+                        "env": {
+                            "MAX_CONCURRENCY": "1"
+                        }
+                    }
+                }
+            },
+            "build-commands": [
+                "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"pyyaml\" --no-build-isolation"
+            ],
+            "sources": [
+                {
+                    "type": "file",
+                    "url": "https://files.pythonhosted.org/packages/36/2b/61d51a2c4f25ef062ae3f74576b01638bebad5e045f747ff12643df63844/PyYAML-6.0.tar.gz",
+                    "sha256": "68fb519c14306fec9720a2a5b45bc9f0c8d1b9c72adf45c37baedfcd949c35a2"
                 }
             ]
         },
@@ -136,14 +177,14 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/sass/libsass/archive/3.4.7.tar.gz",
-                    "sha256": "855c40528b897d06ae4d24606c2db3cd09bb38de5b46b28e835f9d4fd4d7ab95",
+                    "url": "https://github.com/sass/libsass/archive/refs/tags/3.6.5.tar.gz",
+                    "sha256": "89d8f2c46ae2b1b826b58ce7dde966a176bac41975b82e84ad46b01a55080582",
                     "dest": "./deps/libsass/"
                 },
                 {
                     "type": "archive",
-                    "url": "https://github.com/sass/sassc/archive/3.4.2.tar.gz",
-                    "sha256": "ad805f2d404d17cf2980c8079a7413cd58d2f2085120167997b85420a722e079",
+                    "url": "https://github.com/sass/sassc/archive/refs/tags/3.6.2.tar.gz",
+                    "sha256": "608dc9002b45a91d11ed59e352469ecc05e4f58fc1259fc9a9f5b8f0f8348a03",
                     "dest": "./deps/sassc/"
                 }
             ]
@@ -182,8 +223,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://www.imagemagick.org/download/releases/ImageMagick-7.0.8-68.tar.xz",
-                    "sha256": "3639baa6ceb5db38b1b48a4b917f90fe007ca7edca1f7894d5555a0bc746305a"
+                    "url": "https://github.com/ImageMagick/ImageMagick/archive/refs/tags/7.1.0.43.tar.gz",
+                    "sha256": "62eccb3e8c89acc66c2b10a2bea843b6659a2ddce275c7d2ffee8c34af6114fd"
                 }
             ]
         },
@@ -202,7 +243,7 @@
                 {
                     "type": "git",
                     "url": "https://github.com/themix-project/oomox.git",
-                    "tag": "1.13.3"
+                    "tag": "1.14"
                 }
             ]
         }
