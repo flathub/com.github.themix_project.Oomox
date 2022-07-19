@@ -32,18 +32,18 @@
         {
             "name": "resvg",
             "buildsystem": "simple",
-            "build-commands": [
-                "cargo build --workspace --frozen --release --all-features",
-                "install -Dm755 target/release/resvg /app/bin/resvg",
-                "install -Dm755 target/release/libresvg.so /app/lib/libresvg.so",
-                "install -Dm644 c-api/resvg.h /app/include/resvg.h"
-            ],
             "build-options": {
                 "append-path": "/usr/lib/sdk/rust-stable/bin",
                 "env" : {
                     "CARGO_HOME" : "/run/build/resvg/cargo"
                 }
             },
+            "build-commands": [
+                "cargo build --workspace --frozen --release --all-features",
+                "install -Dm755 target/release/resvg /app/bin/resvg",
+                "install -Dm755 target/release/libresvg.so /app/lib/libresvg.so",
+                "install -Dm644 c-api/resvg.h /app/include/resvg.h"
+            ],
             "sources": [
                 "cargo-sources.json",
                 {
