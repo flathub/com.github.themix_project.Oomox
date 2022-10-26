@@ -1,7 +1,7 @@
 {
     "app-id": "com.github.themix_project.Oomox",
     "runtime": "org.gnome.Sdk",
-    "runtime-version": "42",
+    "runtime-version": "43",
     "sdk": "org.gnome.Sdk",
     "sdk-extensions": ["org.freedesktop.Sdk.Extension.rust-stable"],
     "command": "oomox-gui",
@@ -48,8 +48,8 @@
                 "cargo-sources.json",
                 {
                     "type": "archive",
-                    "url": "https://github.com/RazrFalcon/resvg/releases/download/v0.23.0/resvg-0.23.0.tar.xz",
-                    "sha256": "557de89846d1aab06f9261d1d661a64cc35ad7037ab56e49eb2a81f10487f8f5"
+                    "url": "https://github.com/RazrFalcon/resvg/releases/download/v0.24.0/resvg-0.24.0.tar.xz",
+                    "sha256": "654975f89ee82d2de4dd44aa541e385c7cb42d8c88e47aa93fc235a246f69d41"
                 }
             ]
         },
@@ -178,9 +178,10 @@
             ],
             "sources": [
                 {
-                    "type": "archive",
-                    "url": "https://github.com/ImageMagick/ImageMagick/archive/refs/tags/7.1.0.43.tar.gz",
-                    "sha256": "62eccb3e8c89acc66c2b10a2bea843b6659a2ddce275c7d2ffee8c34af6114fd"
+                    "type": "git",
+                    "url": "https://github.com/ImageMagick/ImageMagick.git",
+                    "tag": "7.1.0-51",
+                    "commit": "aea87b538fdb0e464ac3bbc7941127119baac5dd"
                 }
             ]
         },
@@ -195,7 +196,8 @@
                 {
                     "type": "git",
                     "url": "https://github.com/themix-project/oomox.git",
-                    "tag": "1.14"
+                    "tag": "1.15",
+                    "commit": "f1f7c566ea1aaf5e03e989f3a9396567341940d7"
                 }
             ]
         }
