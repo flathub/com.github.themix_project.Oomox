@@ -48,8 +48,8 @@
                 "cargo-sources.json",
                 {
                     "type": "archive",
-                    "url": "https://github.com/RazrFalcon/resvg/releases/download/v0.24.0/resvg-0.24.0.tar.xz",
-                    "sha256": "654975f89ee82d2de4dd44aa541e385c7cb42d8c88e47aa93fc235a246f69d41"
+                    "url": "https://github.com/RazrFalcon/resvg/releases/download/v0.28.0/resvg-0.28.0.tar.xz",
+                    "sha256": "8b8ca8c719f5e83dad79ba76b9523a95ce063324203b639cb12ca23eab707f1d"
                 }
             ]
         },
@@ -62,8 +62,8 @@
             "sources": [
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/8c/92/2975b464d9926dc667020ed1abfa6276e68c3571dcb77e43347e15ee9eed/Pillow-9.2.0.tar.gz",
-                    "sha256": "75e636fd3e0fb872693f23ccb8a5ff2cd578801251f3a4f6854c6a5d437d3c04"
+                    "url": "https://files.pythonhosted.org/packages/16/11/da8d395299ca166aa56d9436e26fe8440e5443471de16ccd9a1d06f5993a/Pillow-9.3.0.tar.gz",
+                    "sha256": "c935a22a557a560108d780f9a0fc426dd7459940dc54faa49d83249c8d3e760f"
                 }
             ]
         },
@@ -180,8 +180,8 @@
                 {
                     "type": "git",
                     "url": "https://github.com/ImageMagick/ImageMagick.git",
-                    "tag": "7.1.0-51",
-                    "commit": "aea87b538fdb0e464ac3bbc7941127119baac5dd"
+                    "tag": "7.1.0-55",
+                    "commit": "6edfae3829240aedef8a3a79b23c2fa1fd4c688f"
                 }
             ]
         },
@@ -196,8 +196,8 @@
                 {
                     "type": "git",
                     "url": "https://github.com/themix-project/oomox.git",
-                    "tag": "1.15",
-                    "commit": "f1f7c566ea1aaf5e03e989f3a9396567341940d7"
+                    "tag": "1.15.1",
+                    "commit": "e79ca3108a9a0cf8e421570d8b97c3936e9d0fc2"
                 }
             ]
         }
