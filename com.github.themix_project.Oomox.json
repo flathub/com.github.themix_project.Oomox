@@ -196,8 +196,8 @@
                 {
                     "type": "git",
                     "url": "https://github.com/themix-project/oomox.git",
-                    "tag": "1.15",
-                    "commit": "f1f7c566ea1aaf5e03e989f3a9396567341940d7"
+                    "tag": "1.15.1",
+                    "commit": "e79ca3108a9a0cf8e421570d8b97c3936e9d0fc2"
                 }
             ]
         }
