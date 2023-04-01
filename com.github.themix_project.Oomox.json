@@ -48,8 +48,8 @@
                 "cargo-sources.json",
                 {
                     "type": "archive",
-                    "url": "https://github.com/RazrFalcon/resvg/releases/download/v0.28.0/resvg-0.28.0.tar.xz",
-                    "sha256": "8b8ca8c719f5e83dad79ba76b9523a95ce063324203b639cb12ca23eab707f1d"
+                    "url": "https://github.com/RazrFalcon/resvg/releases/download/v0.30.0/resvg-0.30.0.tar.xz",
+                    "sha256": "c97de618972dd98fd7b5c14d805c4149150ec6a400711d3b986b12af4cee175d"
                 }
             ]
         },
@@ -62,8 +62,8 @@
             "sources": [
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/16/11/da8d395299ca166aa56d9436e26fe8440e5443471de16ccd9a1d06f5993a/Pillow-9.3.0.tar.gz",
-                    "sha256": "c935a22a557a560108d780f9a0fc426dd7459940dc54faa49d83249c8d3e760f"
+                    "url": "https://files.pythonhosted.org/packages/00/d5/4903f310765e0ff2b8e91ffe55031ac6af77d982f0156061e20a4d1a8b2d/Pillow-9.5.0.tar.gz",
+                    "sha256": "bf548479d336726d7a0eceb6e767e179fbde37833ae42794602631a070d630f1"
                 }
             ]
         },
@@ -74,6 +74,11 @@
                 "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"colorthief\" --no-build-isolation"
             ],
             "sources": [
+                {
+                    "type": "file",
+                    "url": "https://files.pythonhosted.org/packages/00/d5/4903f310765e0ff2b8e91ffe55031ac6af77d982f0156061e20a4d1a8b2d/Pillow-9.5.0.tar.gz",
+                    "sha256": "bf548479d336726d7a0eceb6e767e179fbde37833ae42794602631a070d630f1"
+                },
                 {
                     "type": "file",
                     "url": "https://files.pythonhosted.org/packages/56/18/be03b7058e65f9df479b14e7af4e73945ce311e07aaad45cf2536e14791a/colorthief-0.2.1-py2.py3-none-any.whl",
@@ -88,6 +93,11 @@
                 "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"haishoku\" --no-build-isolation"
             ],
             "sources": [
+                {
+                    "type": "file",
+                    "url": "https://files.pythonhosted.org/packages/00/d5/4903f310765e0ff2b8e91ffe55031ac6af77d982f0156061e20a4d1a8b2d/Pillow-9.5.0.tar.gz",
+                    "sha256": "bf548479d336726d7a0eceb6e767e179fbde37833ae42794602631a070d630f1"
+                },
                 {
                     "type": "file",
                     "url": "https://files.pythonhosted.org/packages/d1/9d/5d52b35d4aef716266e812d8c6df9702e31de4499a4cbe567c0e71cee225/haishoku-1.1.8-py3-none-any.whl",
@@ -180,8 +190,8 @@
                 {
                     "type": "git",
                     "url": "https://github.com/ImageMagick/ImageMagick.git",
-                    "tag": "7.1.0-55",
-                    "commit": "6edfae3829240aedef8a3a79b23c2fa1fd4c688f"
+                    "tag": "7.1.1-5",
+                    "commit": "2d24be538f286962c355cf422bb525375ac77998"
                 }
             ]
         },
